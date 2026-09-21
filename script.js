@@ -1,33 +1,32 @@
-function updateClock() {
-    const now = new Date();
+const button = document.querySelector("button");
 
-    let hours = now.getHours();
-    const ampm = hours >= 12 ? "PM" : "AM";
+const input = document.querySelector("input");
+const taskContainer = document.querySelector(".task-container")
 
-    hours = hours % 12;
-    hours = hours ? hours : 12;
+button.addEventListener("click",function(){
+    const task = input.value;
 
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-
-    const time =
-        String(hours).padStart(2, "0") + ":" +
-        String(minutes).padStart(2, "0") + ":" +
-        String(seconds).padStart(2, "0") + " " +
-        ampm;
-
-    document.getElementById("clock").textContent = time;
-
-    const date = now.toLocaleDateString("en-IN", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric"
+    const li = document.createElement("li");
+    li.textContent = task;
+    li.addEventListener("click" , function(){
+        if (li.style.textDecoration === "line-through") {
+            li.style.textDecoration = "none";
+        }
+        else{
+            li.style.textDecoration = "line-through";
+        }
     });
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
 
-    document.getElementById("date").textContent = date;
-}
+    deleteButton.addEventListener("click",function(){
+        li.remove();
+    });
+    li.appendChild(deleteButton);
 
-updateClock();
 
-setInterval(updateClock, 1000);
+    taskContainer.appendChild(li);
+
+    input.value="";
+
+});
