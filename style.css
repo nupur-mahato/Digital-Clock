@@ -1,35 +1,56 @@
 body{
-    background-color: #e8f0fe;
-    text-align: center;
-}
-input{
-    width: 300px ;
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 15px;
-   
-}
-button{
-    background:lightcyan ;
-    color: black;
-    padding: 5px;
-    border-radius: 5px;
-
-}
-.task-container{
-    background:lightyellow;
-    padding: 20px;
-    margin: 4px auto;
-    width: 500px;
-    border-radius: 20px;
-    border: 5px solid black;
-    list-style: none;
+    margin: center;
     justify-content: center;
-}
-li{
     display: flex;
-    justify-content: space-between;
-    padding: 6px;
-    font-weight: bold;
-    font-size: 18px;
+    align-items: center;
+}
+.clock-container{
+    color:white;
+    font-size: 100px;
+    background: linear-gradient(135deg, #0f172a, #1e3a5f);
+    height: 600px;
+    width: 600px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    border: 4px solid  #00d9ff;
+    margin-bottom: 2opx;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 25px #00d9ff;
+    gap: 10px;
+    box-shadow: 0 0 20px #00d9ff, 0 0 50px #00d9ff
+}
+#clock{
+    color:white;
+    font-size: 55px;
+    align-items: center;
+    text-shadow: 0 0 15px #00d9ff;
+    font-family: monospace;
+}
+#date{
+    font-size: 30px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+@media(max-width:500px){
+    .clock-container{
+        width: 300px;
+        height: 300px;
+    }
+#clock{
+    font-size: 40px;
+}
+}
+@media (max-width: 500px) {
+    .clock-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    #clock {
+        font-size: 40px;
+    }
 }
